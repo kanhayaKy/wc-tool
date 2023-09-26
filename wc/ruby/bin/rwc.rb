@@ -17,6 +17,9 @@ def count_lines(data="")
   data.split("\n").length
 end
 
+def count_words(data="")
+  data.split(" ").length
+end
 
 option, file_path, *args = ARGV
 
@@ -29,6 +32,9 @@ when '-c'
 when '-l'
   puts "Counting the lines in the file"
   puts count_lines(file_data)
+when '-w'
+  puts "Counting the words in the file"
+  puts count_words(file_data)
 else
   puts "Invalid option"
 end
