@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+###############################
+######## HELPER METHODS #######
+###############################
+
 def get_file_data(file_path)
   file_data = File.read(file_path, :encoding => 'utf-8')
   return file_data
@@ -8,10 +12,6 @@ end
 def count_bytes(data="")
   data.bytesize
 end
-# Test cases for count_bytes
-# puts count_bytes() # should return 0
-# puts count_bytes("") # should return 0
-# puts count_bytes("hello world") # should return 11
 
 def count_lines(data="")
   data.split("\n").length
@@ -25,6 +25,10 @@ def count_chars(data="")
   data.size
 end
 
+
+###############################
+####### RUNNER CODE BEGIN #####
+###############################
 
 case ARGV.length
 when 0
