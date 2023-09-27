@@ -21,20 +21,43 @@ def count_words(data="")
   data.split(" ").length
 end
 
-option, file_path, *args = ARGV
+def count_chars(data="")
+  data.size
+end
 
-file_data = get_file_data(file_path)
+
+case ARGV.length
+when 0
+  abort "Invalid Usage, print help"
+when 1
+  file_path, *args = ARGV
+  option = nil
+when 2
+  option, file_path, *args = ARGV
+else
+  abort "Invalid Usage, print help"
+end
+
+if File.exists?(file_path)
+  file_data = get_file_data(file_path)
+else
+  abort "rwc: #{file_path}: No such file"
+end
 
 case option
+when nil
+  bytes = count_bytes(file_data)
+  lines = count_lines(file_data)
+  words = count_words(file_data)
+  puts "#{lines} #{words} #{bytes} #{file_path}"
 when '-c'
-  puts "Counting the bytes in the file"
-  puts count_bytes(file_data)
+  puts "#{count_bytes(file_data)} #{file_path}"
 when '-l'
-  puts "Counting the lines in the file"
-  puts count_lines(file_data)
+  puts "#{count_lines(file_data)} #{file_path}"
 when '-w'
-  puts "Counting the words in the file"
-  puts count_words(file_data)
+  puts "#{count_words(file_data)} #{file_path}"
+when '-m'
+  puts "#{count_chars(file_data)} #{file_path}"
 else
   puts "Invalid option"
 end
