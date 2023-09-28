@@ -5,7 +5,11 @@
 ###############################
 
 def get_file_data(file_path)
-  file_data = File.read(file_path, :encoding => 'utf-8')
+  if File.exists?(file_path)
+    file_data = File.read(file_path, :encoding => 'utf-8')
+  else
+    abort "rwc: #{file_path}: No such file"
+  end
   return file_data
 end
 
@@ -32,20 +36,16 @@ end
 
 case ARGV.length
 when 0
-  abort "Invalid Usage, print help"
+  file_data = STDIN.read
 when 1
   file_path, *args = ARGV
+  file_data = get_file_data(file_path)
   option = nil
 when 2
   option, file_path, *args = ARGV
-else
-  abort "Invalid Usage, print help"
-end
-
-if File.exists?(file_path)
   file_data = get_file_data(file_path)
 else
-  abort "rwc: #{file_path}: No such file"
+  abort "Invalid Usage, print help"
 end
 
 case option
