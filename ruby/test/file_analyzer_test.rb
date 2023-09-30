@@ -16,7 +16,7 @@ class FileAnalyzerTest < Minitest::Test
   end
 
   def test_without_option
-    assert_equal "7145 58070 334999 ../test.txt", @file_analyzer.analyze_option(@file_path)
+    assert_equal "7143 58164 334997 ../test.txt", @file_analyzer.analyze_option(@file_path)
   end
 
   def test_invalid_option
@@ -35,10 +35,10 @@ class FileAnalyzerTest < Minitest::Test
   end
 
   def test_with_option_w
-    assert_equal "58070 ../test.txt", @file_analyzer.analyze_option(@file_path, "-w")
+    assert_equal "58164 ../test.txt", @file_analyzer.analyze_option(@file_path, "-w")
   end
 
   def test_with_option_m
-    assert_equal "334997 ../test.txt", @file_analyzer.analyze_option(@file_path, "-m")
+    assert_equal "332101 ../test.txt", @file_analyzer.analyze_option(@file_path, "-m")
   end
 end

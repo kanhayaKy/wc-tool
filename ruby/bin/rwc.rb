@@ -5,7 +5,7 @@ file_path = ARGV[-1]
 option = ARGV[-2]
 
 begin
-  if option.nil? && file_path.start_with?("-")
+  if option.nil? && !file_path.nil? && file_path.start_with?("-")
     option = file_path
     file_path = nil
   end
