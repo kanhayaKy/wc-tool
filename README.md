@@ -1,6 +1,6 @@
 # RWC - Ruby WC Tool
 
-`rwc` (word count) is a command-line tool in Linux used to gather various statistics from a given file or input stream. These statistics include the number of lines, word count, character count, and byte count in the specified file. `rwc` is a similar tool built using Ruby, offering the same features and the ability to accept input from the standard input stream.
+`wc` (word count) is a command-line tool in Linux used to gather various statistics from a given file or input stream. These statistics include the number of lines, word count, character count, and byte count in the specified file. `rwc` is a similar tool built using Ruby, offering the same features and the ability to accept input from the standard input stream.
 
 ## Setup
 
